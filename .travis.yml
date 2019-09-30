@@ -84,7 +84,9 @@ matrix:
         - emulator -avd test -no-window -no-boot-anim &
         - android-wait-for-emulator
       script:
-        - python -m pytest -v tests/adbe_tests.py  --durations=0
+        - sleep 120
+        - adb shell dumpsys wifi
+        - adb shell locksettings set-pin 123456
 
     # Source: https://medium.com/@harmittaa/travis-ci-android-example-357f6e632fc4
     # Source: https://stackoverflow.com/a/28751112/434196
